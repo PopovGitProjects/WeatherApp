@@ -10,12 +10,42 @@
         android:id="@+id/tvTemp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
         android:textSize="32sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        tools:text="22"
-        />
+        tools:text="22" />
+
+    <TextView
+        android:id="@+id/tvWS"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:textSize="32sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvTemp"
+        tools:text="24" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:text="@string/temp"
+        app:layout_constraintBottom_toBottomOf="@+id/tvTemp"
+        app:layout_constraintEnd_toStartOf="@+id/tvTemp"
+        app:layout_constraintTop_toTopOf="@+id/tvTemp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:text="@string/wind_speed"
+        app:layout_constraintBottom_toBottomOf="@+id/tvWS"
+        app:layout_constraintEnd_toStartOf="@+id/tvWS"
+        app:layout_constraintTop_toTopOf="@+id/tvWS" />
 
     <Button
         android:id="@+id/btn"
@@ -28,5 +58,47 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/tvWindDir"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:textSize="32sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvWS"
+        tools:text="18"
+        />
+
+    <TextView
+        android:id="@+id/tvPres"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:textSize="32sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvWindDir"
+        tools:text="20"
+        />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:text="@string/wind_dir"
+        app:layout_constraintBottom_toBottomOf="@+id/tvWindDir"
+        app:layout_constraintEnd_toStartOf="@+id/tvWindDir"
+        app:layout_constraintTop_toTopOf="@+id/tvWindDir" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:text="@string/press"
+        app:layout_constraintBottom_toBottomOf="@+id/tvPres"
+        app:layout_constraintEnd_toStartOf="@+id/tvPres"
+        app:layout_constraintTop_toTopOf="@+id/tvPres" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

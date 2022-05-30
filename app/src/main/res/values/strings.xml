@@ -1,4 +1,9 @@
 <resources>
     <string name="app_name">Weather App</string>
     <string name="refresh_current_weather">Refresh current weather</string>
+    <string name="temp">Temperature:</string>
+    <string name="wind_speed">Wind speed:</string>
+    <string name="wind_dir">Wind direction:</string>
+    <string name="press">Pressure:</string>
+
 </resources>

@@ -6,10 +6,10 @@ import androidx.appcompat.app.AppCompatActivity
 import com.android.volley.Request
 import com.android.volley.toolbox.StringRequest
 import com.android.volley.toolbox.Volley
+import com.example.weatherapp.constants.Constant
 import com.example.weatherapp.databinding.ActivityMainBinding
 import org.json.JSONObject
 
-const val KEY = "6cf520d6cc6f411587f110159223005"
 
 class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
@@ -18,15 +18,15 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        getResult("Perm'")
+
         binding.btn.setOnClickListener {
-            binding.tvTemp.text = getResult("London")
-            Log.d("MyLog", getResult("London"))
+            getResult("Perm'")
         }
     }
-    private fun getResult(name: String): String{
+    private fun getResult(name: String){
         val url = "https://api.weatherapi.com/v1/current.json" +
-                "?key=$KEY&q=$name&aqi=no"
-        var result = ""
+                "?key=${Constant.KEY}&q=$name&aqi=no"
         val queue =  Volley.newRequestQueue(this)
         val stringRequest = StringRequest(Request.Method.GET,
             url,
@@ -34,14 +34,29 @@ class MainActivity : AppCompatActivity() {
                 response ->
                 val obj = JSONObject(response)
                 val temp = obj.getJSONObject("current").getString("temp_c")
-//                Log.d("MyLog", temp)
-                result = temp
+                val wind = obj.getJSONObject("current").getString("wind_kph")
+                val pressure = obj.getJSONObject("current").getString("pressure_mb")
+                val windDirection = obj.getJSONObject("current").getString("wind_dir")
+
+                setResponse(temp, wind, windDirection, pressure)
             },
             {
                 Log.d("MyLog", "Volley error: $it")
             }
         )
         queue.add(stringRequest)
-        return result
+    }
+    private fun setResponse(temperature: String,
+                            windSpeed: String,
+                            windDirection: String,
+                            pressure: String
+
+    ){
+        binding.apply {
+            tvTemp.text = temperature
+            tvWS.text = windSpeed
+            tvWindDir.text = windDirection
+            tvPres.text = pressure
+        }
     }
 }
